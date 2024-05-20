@@ -1,0 +1,24 @@
+{
+  "employees": [
+    {
+      "name": "Ram",
+      "email": {"value": "ram@gmail.com"},
+      "age": 23
+    },
+    {
+      "name": "Shyam",
+      "email": {"value": "nope@gmail.com"},
+      "age": 28
+    },
+    {
+      "name": "John",
+      "email": {"value": "rofl@gmail.com"},
+      "age": 33
+    },
+    {
+      "name": "Bob",
+      "email": {"value": "boy@gmail.com"},
+      "age": 41
+    }
+  ]
+}
