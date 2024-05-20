@@ -63,9 +63,7 @@ M.live_query = function(opts)
     end
 
     local query_entry_maker = function(entry)
-        --log.info('Calling entry maker:', entry)
         local jq_comm = M._convertDotsToBrackets(entry)
-        --log.info('Entry maked with:', jq_comm)
 
         return {
             value = jq_comm,
@@ -80,9 +78,7 @@ M.live_query = function(opts)
         end
 
         log.info('live finder with prompt:', prompt)
-        --local output = M._make_jq_command { '"', prompt, '"', opts.file_name}
         local output = M._make_jq_command { prompt, opts.file_name}
-        --local output = nil
         if output then
             local filename = "/tmp/live_jq.json"
             local f = io.open(filename, "w")
@@ -109,7 +105,7 @@ M.live_query = function(opts)
                 --TODO: use system indepedent tmp file
                 local selector =  M._make_jq_command { '.' .. entry.value, '/tmp/live_jq.json' }
                 vim.api.nvim_buf_set_lines(self.state.bufnr, 0, 0, true, selector)
-                utils.highlighter(self.state.bufnr, 'markdown')
+                utils.highlighter(self.state.bufnr, 'json')
             end,
             attach_mappings = function(prompt_bufnr)
                 --TODO: allow mode switch between two pickers: Live Query picker and key search
@@ -143,11 +139,11 @@ M.list_keys = function(opts)
             }),
             sorter = conf.generic_sorter(opts),
             previewer = previewers.new_buffer_previewer({
-                title = 'Volume Details',
+                title = 'Query Details',
                 define_preview = function(self, entry)
                     local selector =  M._make_jq_command { '.' .. entry.value, opts.file_name }
                     vim.api.nvim_buf_set_lines(self.state.bufnr, 0, 0, true, selector)
-                    utils.highlighter(self.state.bufnr, 'markdown')
+                    utils.highlighter(self.state.bufnr, 'json')
                 end,
                 attach_mappings = function(prompt_bufnr)
                     actions.select_default:replace(function()
