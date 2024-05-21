@@ -16,7 +16,12 @@ There are two functions that plugin supports as of now:
 
 Here are some example screenshots:
 
-* TODO.
+Basic view example:
+![Base function](https://github.com/kri4er/telescope-jq.nvim/blob/main/demo/baseScreen_jq.png)
+Fuzzy search on list_keys
+![Fuzzy search](https://github.com/kri4er/telescope-jq.nvim/blob/main/demo/list_keys_fuzzy.png)
+Live Query
+![Live Query](https://github.com/kri4er/telescope-jq.nvim/blob/main/demo/live_query_age_condition.png)
 
 ## Installation
 Please install plugin using your neovim plugin manager:
